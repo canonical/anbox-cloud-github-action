@@ -9,7 +9,7 @@ See https://anbox-cloud.io/docs for more details
 
 ## Action inputs
 
-* `snap-channel`: Channel in the snap store of the `anbox-cloud-appliance` snap to use.
+* `channel`: Channel in the snap store of the `anbox-cloud-appliance` snap to use.
 * `ubuntu-pro-token`: Token to attach the runner to Ubuntu Pro which is required to have
   access to the official images provided by Canonical.
 
@@ -25,7 +25,7 @@ jobs:
     - name: Setup Anbox Cloud
       uses: canonical/anbox-cloud-github-action@main
       with:
-        snap-channel: 1.23/stable
+        channel: 1.23/stable
         ubuntu-pro-token: ${{ secrets.UBUNTU_PRO_TOKEN }}
     - name: Create Android instance
       id: create-instance
