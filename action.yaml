@@ -46,7 +46,11 @@ runs:
       addr="$(ip -4 -j route get 2.2.2.2 | jq -r '.[] | .prefsrc')"
       cat << EOF | sudo anbox-cloud-appliance init --preseed
       network:
+        # We set both listen and public address to the same local IP address
+        # as otherwise the appliance will attempt to determine the public
+        # address through the use of STUN.
         listen-address: $addr
+        public-address: $addr
       lxd:
         # We use 30GB here which should give us enough space
         storage-size: 32212254720
