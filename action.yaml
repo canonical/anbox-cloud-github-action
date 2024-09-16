@@ -26,7 +26,7 @@ runs:
       sudo pro attach ${{ inputs.ubuntu-pro-token }}
       sudo pro enable anbox-cloud --access-only
   - name: Setup LXD
-    uses: canonical/setup-lxd@2aa6f7caf7d1484298a64192f7f63a6684e648a4
+    uses: canonical/setup-lxd@8fb85546a934dfb994becf81341dd387ffe6aabb
     with:
       channel: 5.0/stable
   - name: Install necessary snap packages
