@@ -10,7 +10,7 @@ jobs:
     name: Cache Anbox Cloud images
     runs-on: ubuntu-latest
     steps:
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@692973e3d937129bcbf40652eb9f2f61becf3332 # v4
     - name: Attach to Ubuntu Pro
       run: |
         sudo pro attach ${{ secrets.UBUNTU_PRO_TOKEN }}
@@ -28,7 +28,7 @@ jobs:
         image_url="$image_server_url"/"$image_path"
         curl -s "$image_url" -o images/android13.tar.xz
     - name: Cache all images
-      uses: actions/cache/save@v4
+      uses: actions/cache/save@0c45773b623bea8c8e75f6c82b208c3cf94ea4f9 # v4
       with:
         path: images
         key: anbox-images-amd64
