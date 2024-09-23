@@ -20,7 +20,7 @@ name: Run integration tests
 on: push
 jobs:
   run-tests:
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-24.04
     steps:
     - name: Setup Anbox Cloud
       uses: canonical/anbox-cloud-github-action@main
