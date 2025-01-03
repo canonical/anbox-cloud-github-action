@@ -11,7 +11,7 @@ inputs:
     required: false
     type: string
   ubuntu-pro-token:
-    default: ''
+    default: 'C14CnWpWiH1LznZRnH521kBPeTk7EF'
     description: Ubuntu Pro token to setup access to official image server
     require: false
     type: string
