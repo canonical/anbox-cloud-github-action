@@ -15,6 +15,11 @@ inputs:
     description: LXD channel to use
     required: false
     type: string
+  storage-size:
+    default: 30
+    description: Size of the LXD storage pool in GiB
+    required: false
+    type: number
   ubuntu-pro-token:
     default: ''
     description: Ubuntu Pro token to setup access to official image server
@@ -40,6 +45,8 @@ runs:
       sudo snap install --channel=${{ inputs.channel }} anbox-cloud-appliance
   - name: Initialize Anbox Cloud
     shell: bash
+    env:
+      STORAGE_SIZE: ${{ inputs.storage-size }}
     run: |
       anbox-cloud-appliance prepare-node-script | sudo bash -ex
 
@@ -49,6 +56,7 @@ runs:
 
       uid="$(id -u)"
       addr="$(ip -4 -j route get 2.2.2.2 | jq -r '.[] | .prefsrc')"
+      storage_size=$((STORAGE_SIZE * 1024 * 1024 * 1024))
       cat << EOF | sudo anbox-cloud-appliance init --preseed
       network:
         # We set both listen and public address to the same local IP address
@@ -57,8 +65,7 @@ runs:
         listen-address: $addr
         public-address: $addr
       lxd:
-        # We use 30GB here which should give us enough space
-        storage-size: 32212254720
+        storage-size: $storage_size
         storage-pool: anbox-cloud
       ams:
         api:
