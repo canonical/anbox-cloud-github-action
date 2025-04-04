@@ -10,6 +10,11 @@ inputs:
     description: Snap channel of the anbox-cloud-appliance snap to use
     required: false
     type: string
+  lxd-channel:
+    default: 5.21/stable
+    description: LXD channel to use
+    required: false
+    type: string
   ubuntu-pro-token:
     default: ''
     description: Ubuntu Pro token to setup access to official image server
@@ -28,7 +33,7 @@ runs:
   - name: Setup LXD
     uses: canonical/setup-lxd@2fa6235ef2dfd3288e0de09edac03f2ebf922968
     with:
-      channel: 5.0/stable
+      channel: ${{ inputs.lxd-channel }}
   - name: Install necessary snap packages
     shell: bash
     run: |
