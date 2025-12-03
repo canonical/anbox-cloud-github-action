@@ -1,8 +1,8 @@
 # anbox-cloud-github-action
 
 Github action to setup Anbox Cloud on a Github runner. It installs the
-Anbox Cloud Appiance snap package and provides a ready to use environment
-to spin up containerized or virtualized Android instance directly on the
+Anbox Cloud Appliance snap package and provides a ready to use environment
+to spin up containerized or virtualized Android instances directly on the
 Github runner.
 
 See https://anbox-cloud.io/docs for more details
@@ -46,19 +46,12 @@ jobs:
     ...
 ```
 
-# Licensing
+## Licensing
 
 The action is licensed under the terms of [the Apache-2.0 license](LICENSE.md).
 
-## Contributing guidelines
+## Further information
 
-The following resources can help you get started:
+If you find any issues with this workflow, [report a bug](https://bugs.launchpad.net/anbox-cloud).
 
-* [Report a bug](https://bugs.launchpad.net/anbox-cloud)
-
-## More information
-
-Explore more with the following resources:
-
-* [Anbox Cloud documentation](https://anbox-cloud.io/docs)
-* [Contact us](https://anbox-cloud.io/contact-us)
+If you are interested in using Anbox Cloud, [contact us](https://anbox-cloud.io/contact-us).
