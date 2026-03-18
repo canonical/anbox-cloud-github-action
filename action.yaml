@@ -31,9 +31,11 @@ runs:
   steps:
   - name: Attach to Ubuntu Pro
     if: ${{ inputs.ubuntu-pro-token }}
+    env:
+      PRO_TOKEN: ${{ inputs.ubuntu-pro-token }}
     shell: bash
     run: |
-      sudo pro attach ${{ inputs.ubuntu-pro-token }}
+      sudo pro attach "${PRO_TOKEN}"
       sudo pro enable anbox-cloud --access-only
   - name: Setup LXD
     uses: canonical/setup-lxd@d14f946da89caa319fd083d39b1960f4978fb982
@@ -41,8 +43,10 @@ runs:
       channel: ${{ inputs.lxd-channel }}
   - name: Install necessary snap packages
     shell: bash
+    env:
+      CHANNEL: ${{ inputs.channel }}
     run: |
-      sudo snap install --channel=${{ inputs.channel }} anbox-cloud-appliance
+      sudo snap install --channel="${CHANNEL}" anbox-cloud-appliance
   - name: Initialize Anbox Cloud
     shell: bash
     env:
