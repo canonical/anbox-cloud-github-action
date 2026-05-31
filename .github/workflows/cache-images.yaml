@@ -5,6 +5,10 @@ on:
   schedule:
     - cron: '0 10 * * *'
 
+
+permissions:
+  contents: read
+
 jobs:
   cache-images:
     name: Cache Anbox Cloud images
